@@ -17,5 +17,10 @@
     = form.label :age
     = form.number_field :age, id: :user_age
 
+  div class="field"
+    = form.label :image
+    = form.file_field :image, id: :user_image
+    = image_tag user.image, :size => '50x50'
+
   div class="actions"
     = form.submit

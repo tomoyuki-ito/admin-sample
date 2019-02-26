@@ -14,6 +14,7 @@ table
       tr
         td = user.name
         td = user.age
+        td = image_tag user.image, :size => '50x50'
         td = link_to 'Show', user
         td = link_to 'Edit', edit_user_path(user)
         td = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
