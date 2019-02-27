@@ -12,6 +12,10 @@ p
   strong Image:
   = image_tag @user.image, :size => '50x50'
 
+p
+  strong Gender:
+  = @user.gender
+
 = link_to 'Edit', edit_user_path(@user) 
 '|
 = link_to 'Back', users_path
