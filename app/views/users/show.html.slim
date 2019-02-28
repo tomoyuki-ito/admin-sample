@@ -16,6 +16,14 @@ p
   strong Gender:
   = @user.gender
 
+- @user.sites.each do |site|
+  p
+    strong title:
+    = site.title
+  p
+    strong url:
+    = site.url
+
 = link_to 'Edit', edit_user_path(@user) 
 '|
 = link_to 'Back', users_path

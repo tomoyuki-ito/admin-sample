@@ -1,4 +1,4 @@
-= form_with(model: user, local: true) do |form|
+= form_with(model: user, local: true) do |f|
   - if user.errors.any?
     div id="error_explanation"
       h2 
@@ -10,21 +10,29 @@
         li = message
 
   div class="field"
-    = form.label :name
-    = form.text_field :name, id: :user_name
+    = f.label :name
+    = f.text_field :name, id: :user_name
 
   div class="field"
-    = form.label :age
-    = form.number_field :age, id: :user_age
+    = f.label :age
+    = f.number_field :age, id: :user_age
 
   div class="field"
-    = form.label :image
-    = form.file_field :image, id: :user_image
+    = f.label :image
+    = f.file_field :image, id: :user_image
     = image_tag user.image, :size => '50x50'
 
   div class="field"
-    = form.label :gender
-    = form.select :gender, User.genders.keys, :selected=>User.genders[@user.gender]
+    = f.label :gender
+    = f.select :gender, User.genders.keys, :selected=>User.genders[@user.gender]
+
+  div class="field"
+    = f.label :sites
+    = f.fields_for :sites do |site|
+      = render 'site_fields', f: site
+
+  div class="field"
+    = link_to_add_association 'サイト追加', f, :sites
 
   div class="actions"
-    = form.submit
+    = f.submit
