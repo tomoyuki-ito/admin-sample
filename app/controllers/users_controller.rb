@@ -14,7 +14,12 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    if params[:id]
+      target = User.find(params[:id])
+      @user = target.deep_clone(include: [:sites])
+    else
+      @user = User.new
+    end
   end
 
   # GET /users/1/edit

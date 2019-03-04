@@ -19,6 +19,7 @@ table
         td = link_to 'Show', user
         td = link_to 'Edit', edit_user_path(user)
         td = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+        td = link_to 'Copy', controller: 'users', action: 'new', id: user.id
 
 <br>
 
