@@ -16,6 +16,11 @@ p
   strong Gender:
   = @user.gender
 
+= form_tag "#{@user.id}/checktest", method: :post do
+  = label_tag :Married
+  = check_box_tag :married, "1", false
+  = submit_tag "Submit"
+
 - @user.sites.each do |site|
   p
     strong title:
@@ -24,6 +29,6 @@ p
     strong url:
     = site.url
 
-= link_to 'Edit', edit_user_path(@user) 
+= link_to 'Edit', edit_user_path(@user)
 '|
 = link_to 'Back', users_path

@@ -66,6 +66,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def checktest
+    if params[:married] == "1"
+      render plain: "you are married "
+    else
+      render plain: "you are single"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
